@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A12</title>
+</head>
+<body>
+  
+  <p id="cookie-Value"></p>
+  <script>
+    var cookie = document.cookie.split('; ').find(row => row.startsWith('username='));
+
+    var cookieValue = cookie ? cookie.split('=')[1] : null;
+
+    if (!cookieValue)
+    {
+      var username = prompt("Please enter your username:", "");
+
+      if (username != null && username != "")
+      {
+        document.cookie = "username=" + username;
+
+        cookieValue = username;
+      }
+    }
+
+    document.getElementById("cookie-Value").innerHTML = "Cookie value: " + cookieValue;
+  </script>
+  <footer><p>&copy; Kaan Baltaci</p></footer>
+</body>
+</html>
